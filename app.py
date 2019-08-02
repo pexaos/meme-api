@@ -61,6 +61,14 @@ def add_meme():
     
     return jsonify("MEME POSTED!")
 
+@app.route("/meme/<id>", methods=["DELETE"])
+def delete_meme(id):
+    meme_Meme.query.get(id)
+    db.session.delete(meme)
+    db.session.commit()
+    
+    return jsonify("RECORD DELETED")
+
 if  __name__ == "__main__":
     app.debbug=True
     app.run()
